@@ -6,6 +6,8 @@ public class Adressbuch {
 
         Scanner scanner = new Scanner(System.in);
 
+        //Scanner scanner = new Scanner("");
+
         Adresse[] adressen = new Adresse[20];
         Adresse adr;
         boolean ready = false;
@@ -16,8 +18,14 @@ public class Adressbuch {
 
         adr = adressen[0];
 
+
+        //test
+
+
         String hi = "Hello+=1!@#432*&^";
-        System.out.println(validation(hi));
+        System.out.println(validatHausNum(hi));
+        System.out.println(validatTel(hi));
+        System.out.println(validatPLZ(hi));
 
         
 
@@ -55,12 +63,14 @@ public class Adressbuch {
 
                     break;
                 case 2:
-                    System.out.print(adr.name + "\n" +
+                    System.out.print("\n====================\n" + 
+                                     adr.name + "\n" +
                                      adr.mail + "\n" + 
-                                     validation(adr.telefonnummer) + "\n" +
-                                     adr.strasse + ", " + validation(adr.hausnummer) + "\n" +
-                                     validation(adr.postleitzahl) + ", " + adr.wohnort + "\n" +
-                                     adr.kommentar);
+                                     validatTel(adr.telefonnummer) + "\n" +
+                                     adr.strasse + ", " + validatHausNum(adr.hausnummer) + "\n" +
+                                     validatPLZ(adr.postleitzahl) + ", " + adr.wohnort + "\n" +
+                                     adr.kommentar +
+                                     "\n====================\n");
                     break;
 
                 case 3:
@@ -96,16 +106,23 @@ public class Adressbuch {
         Scanner scanner = new Scanner(System.in);
         System.out.println(a);
         String b =  scanner.nextLine();
-        //scanner.close();
         return b;
     }
 
-    public static String validation(String a) {
+    
 
-        a = a.replaceAll("[^A-Za-z0-9+]", "");
 
+    public static String validatPLZ(String a) {
+        a = a.replaceAll("[^\\d]", "");
         return a;
-
+    }
+    public static String validatTel(String a) {
+        a = a.replaceAll("[^\\d+]", "");
+        return a;
+    }
+    public static String validatHausNum(String a) {
+        a = a.replaceAll("[^A-Za-z0-9]", "");
+        return a;
     }
 
     
