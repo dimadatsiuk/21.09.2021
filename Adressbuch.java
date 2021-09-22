@@ -104,7 +104,8 @@ public class Adressbuch {
 
     public static String outputInput (String a) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(a);
+        //System.out.println(a);
+        System.out.print(a);
         String b =  scanner.nextLine();
         return b;
     }
