@@ -16,6 +16,10 @@ public class Adressbuch {
 
         adr = adressen[0];
 
+        String hi = "Hello+=1!@#432*&^";
+        System.out.println(validation(hi));
+
+        
 
 
 
@@ -40,38 +44,22 @@ public class Adressbuch {
             switch (userChoice) {
                 case 1:
 
-                    
-                    System.out.print("\nName: " );
-                    adr.name = scanner.next();
-
-                    System.out.print("\nE-Mail: ");
-                    adr.mail= scanner.next();
-
-                    System.out.print("\nTelefonnummer: ");
-                    adr.telefonnummer =  scanner.next();
-
-                    System.out.print("\nStrasse: ");
-                    adr.strasse = scanner.next();
-
-                    System.out.print("\nHausnummer: ");
-                    adr.hausnummer =  scanner.next(); 
-
-                    System.out.print("\nPLZ: ");
-                    adr.postleitzahl = scanner.next();
-
-                    System.out.print("\nWohnort: ");
-                    adr.wohnort = scanner.next();
-
-                    System.out.print("\nKommentar: ");
-                    adr.kommentar = scanner.next();
+                    adr.name = outputInput("Name: ");
+                    adr.mail = outputInput("E-Mail: ");
+                    adr.telefonnummer = outputInput("Telefonnummer: ");
+                    adr.strasse = outputInput("Strasse: ");
+                    adr.hausnummer = outputInput("Hausnummer: ");
+                    adr.postleitzahl = outputInput("PLZ: ");
+                    adr.wohnort = outputInput("Wohnort: ");
+                    adr.kommentar = outputInput("Kommentar: ");
 
                     break;
                 case 2:
                     System.out.print(adr.name + "\n" +
                                      adr.mail + "\n" + 
-                                     adr.telefonnummer + "\n" +
-                                     adr.strasse + ", " + adr.hausnummer + "\n" +
-                                     adr.postleitzahl + ", " + adr.wohnort + "\n" +
+                                     validation(adr.telefonnummer) + "\n" +
+                                     adr.strasse + ", " + validation(adr.hausnummer) + "\n" +
+                                     validation(adr.postleitzahl) + ", " + adr.wohnort + "\n" +
                                      adr.kommentar);
                     break;
 
@@ -101,6 +89,23 @@ public class Adressbuch {
         scanner.close();
 
         
+    }
+
+
+    public static String outputInput (String a) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(a);
+        String b =  scanner.nextLine();
+        //scanner.close();
+        return b;
+    }
+
+    public static String validation(String a) {
+
+        a = a.replaceAll("[^A-Za-z0-9+]", "");
+
+        return a;
+
     }
 
     
