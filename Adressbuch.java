@@ -82,57 +82,13 @@ public class Adressbuch {
             int userChoice = scanner.nextInt();
 
             switch (userChoice) {
-
-
-
-
-
-
-                /* 
                 
-                    case 1:
-
-                        adr.name = outputInput("Name: ");
-                        adr.alter = outputInput("Alter: ");
-                        adr.mail = outputInput("E-Mail: ");
-                        adr.telefonnummer = outputInput("Telefonnummer: ");
-                        adr.strasse = outputInput("Strasse: ");
-                        adr.hausnummer = outputInput("Hausnummer: ");
-                        adr.postleitzahl = outputInput("PLZ: ");
-                        adr.wohnort = outputInput("Wohnort: ");
-                        adr.kommentar = outputInput("Kommentar: ");
-
-                        break;
-                
-                
-                */
-
-
-
-
-
-
-
-
                 case 1:
 
                     String userInput = outputInput("Geben Sie bitte Daten ein in folgender Reihenfolge, getrennt mit einem '/': " + 
                                                    "\nName / Alter /  E-Mail / Telefonnummer / Strasse / Hausnummer / PLZ / Wohnort / Kommentar\n");
 
                     Scanner scan = new Scanner(userInput).useDelimiter("\\s*/\\s*");
-
-                    //scan.useDelimiter("/");
-
-                    /* String  name = scan.next(),
-                            alter = scan.next(),
-                            mail = scan.next(),
-                            telefonnummer = scan.next(),
-                            strasse = scan.next(),
-                            hausnummer = scan.next(),
-                            postleitzahl = scan.next(),
-                            wohnort = scan.next(),
-                            kommentar = scan.next(); */
-
 
 
                     adr.name = scan.next();
@@ -144,14 +100,6 @@ public class Adressbuch {
                     adr.postleitzahl = scan.next();
                     adr.wohnort = scan.next();
                     adr.kommentar = scan.next();
-
-
-
-                    System.out.println(adr.name.trim()  + "\n" + adr.alter.trim() + "\n" + adr.mail.trim()  + "\n" + adr.telefonnummer.trim()  + 
-                           "\n" + adr.strasse.trim()  + "\n" + adr.hausnummer.trim() + "\n" + adr.postleitzahl.trim()  + "\n" + adr.wohnort.trim()  + "\n" +adr.kommentar.trim() );
-
-
-                    //scan.close();
 
 
                     break;
