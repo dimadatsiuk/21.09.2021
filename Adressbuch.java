@@ -22,17 +22,21 @@ public class Adressbuch {
         //test
 
 
-        String hi = "Hello+=1!@#432*&^";
-        System.out.println(validatHausNum(hi));
-        System.out.println(validatTel(hi));
-        System.out.println(validatPLZ(hi));
+        /* String hi = "Hello+=1!@#432*&^";
+
+        System.out.println("\nvalidation test\n"+
+                           "\nInitial string: " + hi + 
+                           "\n1. "+validatHausNum(hi) +
+                           "\n2. "+validatTel(hi) +
+                           "\n3. "+validatPLZ(hi)
+        ); */
 
         
 
 
 
 
-        System.out.println("================");
+        System.out.println("\n================");
         System.out.println("Adressverwaltung");
         System.out.println("================");       
 
@@ -53,6 +57,7 @@ public class Adressbuch {
                 case 1:
 
                     adr.name = outputInput("Name: ");
+                    adr.alter = outputInput("Alter: ");
                     adr.mail = outputInput("E-Mail: ");
                     adr.telefonnummer = outputInput("Telefonnummer: ");
                     adr.strasse = outputInput("Strasse: ");
@@ -64,12 +69,22 @@ public class Adressbuch {
                     break;
                 case 2:
                     System.out.print("\n====================\n" + 
-                                     adr.name + "\n" +
-                                     adr.mail + "\n" + 
-                                     validatTel(adr.telefonnummer) + "\n" +
+                                     "Name: "+adr.name + "\n" +
+
+                                     ////////////////////////////////////////
+                                     /* "Alter: " + Integer.parseInt(adr.alter) + "\n" +
+                                     "Alter: " + Integer.valueOf(adr.alter) + "\n" + */
+                                     ////////////////////////////////////////
+
+                                     "Alter: "+castToInt(adr.alter) + "\n" +
+
+
+                                     "E-Mail: "+adr.mail + "\n" + 
+                                     "Telefonnummer: "+validatTel(adr.telefonnummer) + "\n" +
+                                     "Anschrift:\n" +
                                      adr.strasse + ", " + validatHausNum(adr.hausnummer) + "\n" +
                                      validatPLZ(adr.postleitzahl) + ", " + adr.wohnort + "\n" +
-                                     adr.kommentar +
+                                     "Kommentar: "+adr.kommentar +
                                      "\n====================\n");
                     break;
 
@@ -104,7 +119,6 @@ public class Adressbuch {
 
     public static String outputInput (String a) {
         Scanner scanner = new Scanner(System.in);
-        //System.out.println(a);
         System.out.print(a);
         String b =  scanner.nextLine();
         return b;
@@ -124,6 +138,18 @@ public class Adressbuch {
     public static String validatHausNum(String a) {
         a = a.replaceAll("[^A-Za-z0-9]", "");
         return a;
+    }
+
+    public static int castToInt(String a) {
+
+        a = a.replaceAll(",", ".");
+        a = a.replaceAll("[^\\d.]", "");
+
+        double d = Double.parseDouble(a);
+        int i = (int) d;
+
+        return i;
+
     }
 
     

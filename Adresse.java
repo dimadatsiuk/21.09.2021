@@ -7,7 +7,8 @@ public class Adresse {
                   kommentar,
                   hausnummer,
                   postleitzahl,
-                  telefonnummer; 
+                  telefonnummer,
+                  alter; 
 
 
     
