@@ -1,6 +1,7 @@
 public class Adresse { 
 
-    public String name,
+    public String vorname,
+                  nachname,
                   mail, 
                   strasse, 
                   wohnort, 
